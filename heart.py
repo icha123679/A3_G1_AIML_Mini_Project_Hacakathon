@@ -2,7 +2,7 @@
 # # UCE2023403-Ichcha Bhat
 # # UCE2023413-Kasak Boob
 
--------HEART RISK PREDICTION SYSTEM ---------------
+# #-------HEART RISK PREDICTION SYSTEM ---------------
 
 import pandas as pd
 import numpy as np
@@ -190,4 +190,5 @@ if uploaded_file is not None:
 
 else:
     st.info(" Please upload your `heart.csv` dataset to begin training and prediction.")
+
 
