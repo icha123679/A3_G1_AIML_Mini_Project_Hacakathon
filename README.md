@@ -46,6 +46,22 @@ Very easy to interpret; it's clear how the model derived a decision.
 Depth limited to 5 levels to prevent overfitting.
 May be sensitive to noise and sometimes gives extreme probability values.
 
+3. Support Vector Machine (SVM)
+
+Builds the best separating boundary (hyperplane) between high-risk and low-risk patients.
+Effective at capturing non-linear patterns using kernel functions.
+Performs well on small to medium clinical datasets.
+Provides probability-based risk predictions for 1, 5, and 10 years.
+May require more computation and proper feature scaling.
+
+4. XGBoost (Extreme Gradient Boosting)
+
+Ensemble model that builds many small decision trees, each improving the errors of the previous one.
+Known for high accuracy and powerful performance on medical tabular data.
+Handles complex interactions between features such as age, cholesterol, blood pressure, etc.
+Provides stable, well-calibrated probability outputs and identifies key risk-driving features.
+More complex to tune, but often achieves the best predictive performance.
+
 **4. System Workflow**
 
 A. Data Preprocessing
@@ -82,21 +98,29 @@ Model-specific insights
 • Accuracy
 Logistic Regression gives slightly higher test accuracy.
 Decision Tree does fairly well but shows moderate overfitting on smaller sets.
+SVM moderate accuracy; performs well when data has strong non-linear patterns.
+XGBoost often provides the highest accuracy due to boosted ensemble learning.
 
 • Sensitivity & Specificity
 
 Logistic Regression → Balanced and reliable
 Decision Tree → High sensitivity but more false positives
+SVM good specificity; may miss some positive cases if margin is wide.
+XGBoost strong balance; typically high sensitivity with well-controlled false positives.
 
 • ROC–AUC
 
 Logistic Regression: Smooth curve, Higher AUC
 Decision Tree: more jumps and a lower AUC
+SVM competitive AUC, smoother than DT but slightly below LR in most cases.
+XGBoost often achieves the best AUC, especially in multi-feature clinical data.
 
 • Probability Behavior
 
 Logistic Regression → Gradual and realistic values
 Decision Tree → Often extreme 0% or 100%
+SVM gives moderate, margin-based probabilities; smoother than DT but sensitive to scaling.
+XGBoost generates stable and well-calibrated probabilities, less extreme than DT, often very accurate.
 
 Overall Finding:
 
